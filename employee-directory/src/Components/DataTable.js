@@ -1,3 +1,4 @@
+  
 import React, { Component } from "react";
 import DataBody from "./DataBody";
 import Nav from "./Nav";
@@ -68,7 +69,7 @@ class DataTable extends Component {
         a.name.last > b.name.last ? 1 : -1
       );
     } else {
-      
+      // eslint-disable-next-line no-unused-vars
       sortedUsers = this.state.result.sort((a, b) =>
         a.name.last < b.name.last ? 1 : -1
       );
@@ -80,8 +81,20 @@ class DataTable extends Component {
         <table className="table table-hover table-dark">
           <thead>
             <tr>
-            <th scope="col">Image</th>
-              <th scope="col">Name</th>
+              <th scope="col">Image</th>
+              <th scope="col">
+                <select
+                  name="alphabetical"
+                  value={this.state.alphabetical}
+                  onChange={this.handleChange}
+                  className={"btn btn-outline-light"}
+                >
+                  <option selected value="az">
+                    A to Z
+                  </option>
+                  <option value="za">Z to A</option>
+                </select>
+              </th>
               <th scope="col">Phone</th>
               <th scope="col">Email</th>
               <th scope="col">DOB</th>
